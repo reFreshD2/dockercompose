@@ -1,0 +1,24 @@
+{% extends '/client/home.html.twig' %}
+
+{% block table %}
+<table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for lot in lots %}
+            <tr>
+                <td>{{ lot.name }}</td>
+                <td>{{ lot.price }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6"> Sorry you haven't lots</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

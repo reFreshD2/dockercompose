@@ -1,0 +1,28 @@
+{% extends '/client/index.html.twig' %}
+
+{% block title %}Auction{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for lot in lots %}
+            <tr>
+                <td>{{ lot.name }}</td>
+                <td>{{ lot.price }}</td>
+                <td><a href="{{ path('buy_lot', {'id': lot.id}) }}">Buy</a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6"> Sorry no lots available</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div><a href="{{ path('add_lot', {'id': id}) }}">Add lot</a></div>
+{% endblock %}

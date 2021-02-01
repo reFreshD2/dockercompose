@@ -1,0 +1,12 @@
+{% extends '/client/index.html.twig' %}
+
+{% block title %}Auction{% endblock %}
+
+{% block content %}
+    <form method="post" action="{{ path('adding', {'id': id}) }}">
+        Name:  <input type="text" name="name"><br>
+        Price: <input type="number" name="price"><br>
+        <div style="color:red" >{{ message }}</div>
+        <input type="submit" name="add" value="Add">
+    </form>
+{% endblock %}

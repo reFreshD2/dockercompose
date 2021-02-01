@@ -1,0 +1,31 @@
+{% extends '/client/index.html.twig' %}
+
+{% block title %}Auction{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Discription</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for club in clubs %}
+            <tr>
+                <td>{{ club.name }}</td>
+                <td>{{ club.discription }}</td>
+                <td>
+                    <a href="{{  path('join_club', {'id': club.id})  }}">Join</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Sorry no club is not created</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('club_new') }}">Create new</a>
+{% endblock %}

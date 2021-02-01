@@ -1,0 +1,32 @@
+{% extends '/client/index.html.twig' %}
+
+{% block title %}Auction{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>City</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Discription</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for auction in auctions %}
+            <tr>
+                <td>{{ auction.city }}</td>
+                <td>{{ auction.date ? auction.date|date('Y-m-d') : '' }}</td>
+                <td>{{ auction.time ? auction.time|date('H:i:s') : '' }}</td>
+                <td>{{ auction.discription }}</td>
+                <td><a href="{{ path('visit', {'id': auction.id}) }}">Visit</a></td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6"> Sorry no auctions available</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auction{% endblock %}
+
+{% block body %}
+<style>
+    a.menu {
+        margin: 10px;
+        padding: 10px;
+    }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div>
+    <a class="menu" href="{{ url('user_index') }}">User</a> <a class="menu" href="{{ url('auction_index') }}">Auction</a> <a class="menu" href="{{ url('exit') }}">Exit</a>
+</div>
+    {% block content %}
+        
+    {% endblock %}
+{% endblock %}

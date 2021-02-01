@@ -1,0 +1,14 @@
+{% extends '/client/index.html.twig' %}
+
+{% block title %}Auction{% endblock %}
+
+{% block content %}
+    <div>Login: {{ user.login }} </div> <br>
+    <div>Phone: {{ user.phone }}</div><br>
+    <div>Your clubs:{% for club in user.clubs %}
+            {{ club }}
+        {% endfor %}</div> <br>
+    <div><a href="{{ url('my_lot') }}">Your lots</a> <a href="{{ url('my_buyes') }}">Your buyes</a></div> <br>
+    {% block table %}
+    {% endblock %}
+{% endblock %}
